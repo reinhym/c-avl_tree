@@ -16,7 +16,7 @@ struct node_print_line
 void fill_blanks(struct node *node, int current_depth, int deepest_depth);
 void clear_blanks(struct node *node);
 void write_node(struct node_print_line *printout, struct node *node, 
-	int current_depth, int deepest_depth);
+int current_depth, int deepest_depth);
 void print_node(struct node *root);
 
 #endif

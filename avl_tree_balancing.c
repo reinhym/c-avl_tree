@@ -7,7 +7,7 @@ void rotation_L(struct node **root_ptr)
 	
 	if (former_right->left)
 	{
-		root->right = root->right->left;
+		root->right = former_right->left;
 	}
 	else
 	{
@@ -54,9 +54,7 @@ struct node_height balance(struct node **root_ptr)
 	struct node_height right_node_height;
 	int left_height;
 	int right_height;
-	
-	start:
-	
+
 	if (*root_ptr == NULL)
 	{
 		return root_height;
@@ -120,11 +118,9 @@ struct node_height balance(struct node **root_ptr)
 				rotation_L(root_ptr);
 			}
 		}
-		goto start;
 	}
 	
 	root_height.left = left_height;
 	root_height.right = right_height;
 	return root_height;
-
 }
