@@ -1,0 +1,1 @@
+gcc *.c -o avl_tree.exe -ansi -pedantic -Wall -lm
