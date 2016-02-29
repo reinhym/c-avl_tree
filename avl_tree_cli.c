@@ -3,7 +3,7 @@
 void print_menu(void)
 {
 	printf("AVL-TREE MENU\n=============\n\
-[1] insert to tree\n\
+[1] insert into tree\n\
 [2] delete from tree\n\
 [3] print tree\n\
 [4] exit program\n\n\
