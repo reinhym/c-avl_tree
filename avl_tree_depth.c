@@ -14,7 +14,10 @@ struct depth get_depth(struct node *node, int current_depth, int deepest_depth)
 	}
 	
 	current_depth++;
-	deepest_depth = current_depth > deepest_depth ? current_depth : deepest_depth;
+	if (current_depth > deepest_depth)
+	{
+		deepest_depth = current_depth;
+	}
 	
 	if (node->left)
 	{
