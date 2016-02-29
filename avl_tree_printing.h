@@ -9,7 +9,7 @@
 
 struct node_print_line
 {
-	char line[80];
+	char line[81];
 	int size;
 };
 

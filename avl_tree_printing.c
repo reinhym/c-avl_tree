@@ -81,19 +81,22 @@ void write_node(struct node_print_line *printout, struct node *node,
 		write_node(printout, node->left, current_depth, deepest_depth);
 	}
 	
-	if (node->value > 0)
+	if (printout[current_depth-1].size < 81)
 	{
-		sprintf(&printout[current_depth-1].line[printout[current_depth-1].size],
-			"%1d", node->value);
+		if (node->value > 0)
+		{
+			sprintf(&printout[current_depth-1].line[printout[current_depth-1].size],
+				"%1d", node->value);
+		}
+		else
+		{
+			printout[current_depth-1].line[printout[current_depth-1].size] = '-';
+		}
+		printout[current_depth-1].size++;
 	}
-	else
-	{
-		printout[current_depth-1].line[printout[current_depth-1].size] = '-';
-	}
-	printout[current_depth-1].size++;
 	
 	j = pow(2,deepest_depth-current_depth+1)-1;
-	for (i = 0; i < j && printout[current_depth-1].size < 80; i++)
+	for (i = 0; i < j && printout[current_depth-1].size < 81; i++)
 	{
 		printout[current_depth-1].line[printout[current_depth-1].size] = ' ';
 		printout[current_depth-1].size++;
@@ -118,7 +121,7 @@ void print_node(struct node *root)
 	printout = malloc(sizeof(struct node_print_line)*depth.deepest_depth);
 	for (i = 0; i < depth.deepest_depth; i++)
 	{
-		for (j = 0; j < 80; j++)
+		for (j = 0; j <= 81; j++)
 		{
 			printout[i].line[j] = '\0';
 		}
@@ -129,7 +132,7 @@ void print_node(struct node *root)
 	{
 		int j;
 		int k = pow(2,depth.deepest_depth-i-1)-1;
-		for (j = 0; j < k; j++)
+		for (j = 0; j < k && printout[i].size < 81; j++)
 		{
 			printout[i].line[printout[i].size] = ' ';
 			printout[i].size++;
