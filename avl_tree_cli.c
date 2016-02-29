@@ -68,22 +68,13 @@ bool valid_tree_value(char *input, int *option)
 		return false;
 	}
 	
-	switch (*option)
+	if (*option > 0 && *option < 10)
 	{
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-		case 9:
-			return true;
-			break;
-		
-		default:
-			return false;
+		return true;
+	}
+	else
+	{
+		return false;
 	}
 }
 
