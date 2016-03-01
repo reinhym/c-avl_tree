@@ -154,5 +154,6 @@ int main(void)
 		}
 	}
 	printf("program exiting\n");
+	free_tree(&head);
 	return EXIT_SUCCESS;
 }

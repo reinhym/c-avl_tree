@@ -18,5 +18,7 @@ struct node_height
 };
 
 void init_node(struct node *target, int target_value);
+void free_tree(struct node **head_ptr);
+void free_node(struct node *node);
 
 #endif
