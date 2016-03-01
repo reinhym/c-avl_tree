@@ -63,18 +63,13 @@ bool valid_menu_choice(char *input, int *option)
 
 bool valid_tree_value(char *input, int *option)
 {
-	if (!valid_integer(input,option))
+	if (!valid_integer(input,option) || *option < 1 || *option > 9)
 	{
 		return false;
-	}
-	
-	if (*option > 0 && *option < 10)
-	{
-		return true;
 	}
 	else
 	{
-		return false;
+		return true;
 	}
 }
 
